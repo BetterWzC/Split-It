@@ -4,18 +4,20 @@ from tkinter.filedialog import askopenfilename, askdirectory
 
 # Function of the simple app
 def sourceFile():
+    ent_sourceFile.delete(0,tk.END)
     filePath = askopenfilename(
         filetypes=[('CSV Files', '*.csv')]
     )
     if not filePath:
         return
-    ent_sourceFile.insert(tk.END, filePath)
+    ent_sourceFile.insert(0, filePath)
 
 def outputFolder():
+    ent_outputFolder.delete(0,tk.END)
     filePath = askdirectory()
     if not filePath:
         return
-    ent_outputFolder.insert(tk.END, filePath)
+    ent_outputFolder.insert(0, filePath)
 
 def submit():
     sourceFilePath = ent_sourceFile.get()
